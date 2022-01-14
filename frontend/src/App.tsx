@@ -1,8 +1,8 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
-import Navbar from "components/Navbar";
-import Listing from "pages/Listing/Index";
-import Form from "pages/Form/Index";
+import Navbar from "components/Navbar/NavBar";
+import Listing from "pages/Listing/Listing";
+import Form from "pages/Form/Form";
 
 function App() {
   return (
