@@ -7,6 +7,7 @@ import { BASE_URL } from "utils/requests";
 
 export default function Listing() {
   const [pageNumber, setPageNumber] = useState(0);
+
   const [page, setPage] = useState<MoviePage>({
     content: [],
     last: true,
@@ -19,6 +20,10 @@ export default function Listing() {
     empty: true,
   });
 
+  const handlePageChange = (newPageNumber: number) => {
+    setPageNumber(newPageNumber);
+  };
+
   useEffect(() => {
     axios.get(`${BASE_URL}/movies?size=12&page=${pageNumber}`).then((res) => {
       const data = res.data as MoviePage;
@@ -30,7 +35,7 @@ export default function Listing() {
   return (
     <>
       <p>{pageNumber}</p>
-      <Pagination />
+      <Pagination page={page} onChange={handlePageChange} />
 
       <div className="container">
         <div className="row">
